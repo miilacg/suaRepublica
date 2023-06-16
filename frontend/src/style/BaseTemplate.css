@@ -1,0 +1,7 @@
+.baseTemplate {
+  display: flex;
+}
+
+section {
+  width: calc(100vw - 260px);
+}

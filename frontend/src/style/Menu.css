@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
 
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: auto;
+  width: 260px;
   height: 100vh;
   padding: 43px 32px;
 
