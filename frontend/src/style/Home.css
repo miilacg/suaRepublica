@@ -1,0 +1,12 @@
+.card {
+  background: white;
+  margin: 30px;
+  padding: 20px 0 30px;
+  border-radius: 5px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 50px;
+}
