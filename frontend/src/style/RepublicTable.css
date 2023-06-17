@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+table thead {
+  text-transform: uppercase;
+  color: var(--cinza-4);
+}
+
+table thead th {
+  padding-bottom: 1rem;
+}
+
+table tbody tr {
+  color: var(--background-3);
+}
+
+table tbody td {
+  padding: 24px 0;
+  text-align: center;
+  border-top: 1px solid var(--cinza-3);
+}
