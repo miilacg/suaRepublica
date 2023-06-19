@@ -1,7 +1,6 @@
 import BaseTemplate from '../components/BaseTemplate';
 import RepublicTable from '../components/RepublicTable';
 
-import '../style/Button.css';
 import '../style/Home.css';
 
 

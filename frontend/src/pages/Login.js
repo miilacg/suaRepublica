@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import logo from '../assets/images/logo.svg';
 
-import '../style/Button.css';
 import '../style/Login.css';
 
 
