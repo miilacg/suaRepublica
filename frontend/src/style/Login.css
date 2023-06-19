@@ -1,0 +1,77 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  padding: 94px 378px;
+  background-color: var(--background-2);
+
+  text-align: center;
+}
+
+.login .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  overflow-y: auto;
+}
+
+.login form {
+  display: grid;
+  gap: 41px;
+  width: 100%;
+}
+
+.login form .formControl {
+  display: grid;
+  gap: 22px;
+
+  text-align: justify;
+  color: var(--cinza-2);
+}
+
+.login form input {
+  padding: 14px 26px;
+  width: 100%;
+  height: 55px;
+
+  border: 1px solid var(--cinza-2);
+  border-radius: 5px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+
+  color: var(--cinza-2);
+}
+
+.login form input:focus-visible {
+  outline: none;
+  border: 2px solid var(--background-2);
+}
+
+.login button {
+  padding: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.login h4 {
+  color: var(--cinza-2);
+}
+
+.login h4 a {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 28px;
+  
+  color: var(--background-2);
+  text-transform: none;
+}
