@@ -78,6 +78,7 @@ a:hover {
   background-color: white;
 }
 
+/* botões */
 .button {
   padding: 12px 20px;
   border-radius: 5px;
@@ -94,16 +95,56 @@ a:hover {
   border: 1px solid var(--background-3);
 }
 
-.primary {
+.button.primary {
   background: var(--background-2);
   color: white;
 }
 
-.secondary {
+.button.secondary {
   background: white;
   color: var(--background-2);
 }
 
-.secondary:hover {
+.button.secondary:hover {
   color: white;
+}
+
+
+/* formulario */
+form .formControl {
+  display: grid;
+  gap: 22px;
+
+  text-align: justify;
+  color: var(--cinza-2);
+}
+
+form input {
+  padding: 14px 26px;
+  width: 100%;
+  height: 55px;
+
+  border: 1px solid var(--cinza-2);
+  border-radius: 5px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+
+  color: var(--cinza-2);
+}
+
+form input:focus-visible {
+  outline: none;
+  border: 2px solid var(--background-2);
+}
+
+form.form button {
+  padding: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
 }

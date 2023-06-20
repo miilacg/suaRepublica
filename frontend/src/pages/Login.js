@@ -10,7 +10,7 @@ function Login() {
     <div className='login'>
       <div className='card'>
         <img src={logo} alt='logo do Sua República' />
-        <form>
+        <form className='form'>
           <div className='formControl'>
             <label>E-mail</label>
             <input type='email' placeholder='Digite seu e-mail ou usuário' />
