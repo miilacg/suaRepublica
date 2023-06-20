@@ -18,9 +18,11 @@
 }
 
 .login form {
-  display: grid;
   gap: 41px;
-  width: 100%;
+}
+
+.login form .formControl {
+  gap: 22px;
 }
 
 .login h4 {

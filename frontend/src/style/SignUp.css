@@ -1,0 +1,94 @@
+.signUp {
+  width: 100vw;
+  height: 100vh;
+  padding: 64px 150px;
+  background-color: var(--background-2);
+
+  text-align: center;
+}
+
+.signUp .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  overflow-y: auto;
+}
+
+.signUp form {
+  margin: 37px 0 19px;
+  gap: 2rem;
+}
+
+.signUp .card form > div {
+  display: flex;
+  gap: 51px;
+
+  width: 100%;
+}
+
+.signUp .formControl.radio > div {
+  display: flex;
+  gap: 41px;
+  width: 100%;
+}
+
+.signUp .card form .formControl {
+  width: 50%;
+  gap: 10px;
+}
+
+.signUp .formControl.radio > div > div {
+  display: inline-flex;
+  align-items: center;
+}
+
+.signUp .formControl.radio > div label {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  
+  color: var(--cinza-2);
+}
+
+.signUp .formControl.radio > div input {
+  margin: 0 12px 0 0;
+  width: 28px;
+  height: 28px;
+}
+
+.signUp form button {
+  margin: 0 auto;
+  width: 587px;
+  min-width: 60%;
+}
+
+.signUp h4 {
+  margin: 0;
+  color: var(--cinza-2);
+}
+
+.signUp h4 a {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 28px;
+  
+  color: var(--background-2);
+  text-transform: none;
+}
+
+
+@media(max-width: 1000px){ 
+  .signUp .card form > div {
+    flex-direction: column;
+  }
+
+  .signUp .card form .formControl {
+    width: 100%;
+  }
+}

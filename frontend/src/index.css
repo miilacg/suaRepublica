@@ -111,9 +111,13 @@ a:hover {
 
 
 /* formulario */
+form {
+  display: grid;
+  width: 100%;
+}
+
 form .formControl {
   display: grid;
-  gap: 22px;
 
   text-align: justify;
   color: var(--cinza-2);
