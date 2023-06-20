@@ -68,7 +68,7 @@ function SignUp() {
             Registre-se
           </button>
         </form>
-        <h4>Já tem uma conta? <Link href=''>Log in</Link></h4>
+        <h4>Já tem uma conta? <Link to='/login'>Log in</Link></h4>
       </div>
     </div>
   );

@@ -24,8 +24,8 @@ function Login() {
           </button>
         </form>
         <div>
-          <h4>Ainda não tem uma conta? <Link href=''>Registre-se aqui</Link></h4>
-          <h4>Esqueceu a senha? <Link href=''>Recupere aqui</Link></h4>
+          <h4>Ainda não tem uma conta? <Link to='/signup'>Registre-se aqui</Link></h4>
+          <h4>Esqueceu a senha? <Link to=''>Recupere aqui</Link></h4>
         </div>
       </div>
     </div>
