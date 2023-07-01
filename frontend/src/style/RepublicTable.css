@@ -23,3 +23,12 @@ table tbody td {
   text-align: center;
   border-top: 1px solid var(--cinza-3);
 }
+
+.loading {
+  display: flex;
+  justify-content: space-around;
+}
+
+.loading > span {
+  margin: 2rem;
+}

@@ -1,35 +1,60 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+import Swal from 'sweetalert2';
+
+import CircularProgress from '@mui/material/CircularProgress';
+
 import '../style/RepublicTable.css';
 
 function RepublicTable() {
+  const [republicas, setRepublicas] = useState(null);
+
+  useEffect(() => {
+    if (republicas === null) {
+      axios.get('http://localhost:8080/republics/list')
+      .then((res) => {
+        setRepublicas(res.data);
+      })
+      .catch((err) => {
+        const mensagem = err?.error?.description || 'Tente novamente mais tarde'
+  
+        Swal.fire({
+          icon: 'error',
+          title: 'Ocorreu um erro!',
+          text: mensagem,
+        })
+      });
+    }
+  }, [republicas]);  
+
   return (
-    <table className='table' cellspacing='0'>
-      <thead>
-        <th>Nome</th>
-        <th>Cidade</th>
-        <th>Bairro</th>
-        <th>Vagas</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>República 1</td>
-          <td>Cidade - MG</td>
-          <td>Bairro</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>República 2</td>
-          <td>Cidade - MG</td>
-          <td>Bairro</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <td>República 3</td>
-          <td>Cidade - MG</td>
-          <td>Bairro</td>
-          <td>1</td>
-        </tr>
-      </tbody>
-    </table>
+    <>
+      {!republicas ? (
+        <div className='loading'>
+          <CircularProgress />
+        </div>
+      ) : (
+        <table className='table' cellspacing='0'>
+          <thead>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Vagas</th>
+          </thead>
+          <tbody>
+            {republicas.map((republica) => (           
+              <tr key={republica.id}>
+                <td>{republica.nome}</td>
+                <td>{republica.municipio} - {republica.estado}</td>
+                <td>{republica.bairro}</td>
+                <td>{republica.qtd_vagas}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </>    
   );
 }
 
