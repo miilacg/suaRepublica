@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS `suaRepublica`.`Usuario` (
   `updatedAt` DATETIME NOT NULL DEFAULT now(),
   `deletedAt` DATETIME NULL,
   PRIMARY KEY (`id_usuario`),
-  UNIQUE INDEX `idusuario_UNIQUE` (`id_usuario` ASC) VISIBLE)
+  UNIQUE INDEX `idusuario_UNIQUE` (`id_usuario` ASC) VISIBLE,
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC) VISIBLE)
 ENGINE = InnoDB;
 
 
@@ -36,7 +37,6 @@ CREATE TABLE IF NOT EXISTS `suaRepublica`.`Republica` (
   `nome` VARCHAR(100) NOT NULL,
   `imagem` VARCHAR(500) NULL,
   `descricao` VARCHAR(1000) NOT NULL,
-  `lotacao_atual` INT NULL,
   `qtd_vagas` INT NOT NULL,
   `qtd_quartos` INT NOT NULL,
   `qtd_banheiros` INT NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `suaRepublica`.`Republica` (
   `reputacao` FLOAT NOT NULL DEFAULT 0,
   `genero` ENUM('FEMININO', 'MASCULINO', 'MISTO', 'OUTRO') NOT NULL,
   `createdAt` DATETIME NOT NULL DEFAULT now(),
-  `updateAt` DATETIME NOT NULL DEFAULT now(),
+  `updatedAt` DATETIME NOT NULL DEFAULT now(),
   `deletedAt` DATETIME NULL,
   `Usuario_id_usuario` INT NOT NULL,
   PRIMARY KEY (`id_republica`),
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `suaRepublica`.`Endereco` (
   `municipio` VARCHAR(30) NOT NULL,
   `estado` VARCHAR(20) NOT NULL,
   `complemento` VARCHAR(20) NULL,
-  `cep` VARCHAR(10) NOT NULL,
+  `cep` VARCHAR(10),
   `Republica_id_republica` INT NOT NULL,
   PRIMARY KEY (`Republica_id_republica`),
   INDEX `fk_Endereco_Republica1` (`Republica_id_republica` ASC) VISIBLE,
