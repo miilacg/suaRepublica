@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 import logo from '../assets/images/logo.svg';
 
@@ -6,18 +8,48 @@ import '../style/Login.css';
 
 
 function Login() {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const [error, setError] = useState(false);
+
+  const submit = (event) => {
+    event.preventDefault();
+
+    axios.post('http://localhost:8080/auth', { senha, email })
+      .then(() => {
+        navigate('/');
+      })
+      .catch((err) => {
+        const mensagem = err?.response?.data?.error?.description || 'Tente novamente mais tarde'
+        setError(mensagem);
+      });
+  }
+
   return (
-    <div className='login'>
+    <div className='login'  onSubmit={submit}>
       <div className='card'>
         <img src={logo} alt='logo do Sua República' />
+        { error && <h4 className='error'> {error} </h4> }
         <form className='form'>
           <div className='formControl'>
             <label>E-mail</label>
-            <input type='email' placeholder='Digite seu e-mail ou usuário' />
+            <input
+              type='email'
+              value={email}
+              placeholder='Digite seu e-mail ou usuário'
+              onChange={(event) => setEmail(event.target.value)}
+            />
           </div>
           <div className='formControl'>
             <label>Senha</label>
-            <input type='password'  placeholder='Digite sua senha' />
+            <input
+              type='password'
+              value={senha}
+              placeholder='Digite sua senha'
+              onChange={(event) => setSenha(event.target.value)}
+            />
           </div>
           <button className='button primary' type='submit'>
             Login
