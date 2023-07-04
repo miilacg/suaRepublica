@@ -6,14 +6,17 @@ export const AuthContext = createContext([{}, () => {}]);
 
 export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+
+  const loggedInUser = localStorage.getItem('user');
+  const [auth, setAuth] = useState(loggedInUser || null);
   const [error, setError] = useState(false);
 
   const login = (email, senha) => {
     axios.post('http://localhost:8080/auth', { senha, email })
       .then((res) => {
-        navigate('/');
+        localStorage.setItem('user', JSON.stringify(res.data));
         setAuth(res.data);
+        navigate('/');
       })
       .catch((err) => {
         const mensagem = err?.response?.data?.error?.description || 'Tente novamente mais tarde'
