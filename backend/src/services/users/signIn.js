@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
   const hash = Base64.stringify(crypto(senha));
 
   connection.query(
-    `SELECT *
+    `SELECT id_usuario AS id, nome, republicas_favoritas, usuario
     FROM Usuario
     WHERE email LIKE '${email}' AND senha = '${hash}' AND deletedAt IS NULL`,
   ).then(async (result) => {
