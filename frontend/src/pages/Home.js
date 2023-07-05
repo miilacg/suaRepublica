@@ -1,7 +1,7 @@
 import BaseTemplate from '../components/BaseTemplate';
 import RepublicTable from '../components/RepublicTable';
 
-import '../style/Home.css';
+import '../style/pages/Home.css';
 
 
 function Home() {

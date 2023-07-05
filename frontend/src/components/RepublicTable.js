@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 import CircularProgress from '@mui/material/CircularProgress';
 
-import '../style/RepublicTable.css';
+import '../style/components/RepublicTable.css';
 
 function RepublicTable() {
   const [republicas, setRepublicas] = useState(null);

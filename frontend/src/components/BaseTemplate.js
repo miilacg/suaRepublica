@@ -1,7 +1,7 @@
 import Header from './Header';
 import Menu from './Menu';
 
-import '../style/BaseTemplate.css';
+import '../style/components/BaseTemplate.css';
 
 
 function BaseTemplate(props) {

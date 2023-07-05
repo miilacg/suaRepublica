@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 import { AuthContext } from '../config/store';
 
-import '../style/Header.css';
+import '../style/components/Header.css';
 
 function Header({ titulo }) {
   const { auth } = useContext(AuthContext);

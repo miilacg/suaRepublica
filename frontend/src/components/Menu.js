@@ -5,7 +5,7 @@ import { AuthContext } from '../config/store';
 
 import logo from '../assets/images/logo.svg';
 
-import '../style/Menu.css';
+import '../style/components/Menu.css';
 
 
 function Menu() {

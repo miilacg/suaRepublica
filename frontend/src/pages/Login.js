@@ -6,7 +6,7 @@ import { AuthContext } from '../config/store';
 
 import logo from '../assets/images/logo.svg';
 
-import '../style/Login.css';
+import '../style/pages/Login.css';
 
 
 function Login() {
