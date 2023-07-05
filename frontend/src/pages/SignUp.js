@@ -1,4 +1,8 @@
+import React, { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
+import { AuthContext } from '../config/store';
 
 import logo from '../assets/images/logo.svg';
 
@@ -6,6 +10,17 @@ import '../style/SignUp.css';
 
 
 function SignUp() {
+  const navigate = useNavigate();
+  
+  const { auth } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth]);
+
   return (
     <div className='signUp'>
       <div className='card'>

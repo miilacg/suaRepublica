@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../config/store';
@@ -9,10 +10,19 @@ import '../style/Login.css';
 
 
 function Login() {
-  const { error, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  
+  const { auth, error, login } = useContext(AuthContext);
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  useEffect(() => {
+    if (auth) {
+      navigate('/');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth]);
 
   async function submit(event){
     event.preventDefault();

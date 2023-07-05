@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
       });
     }
 
-    return res.status(200).json(result[0]);
+    return res.status(200).json(result[0][0]);
   }).catch((err) => {
     return res.status(500).json({
       error: {

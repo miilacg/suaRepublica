@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-export const AuthContext = createContext([{}, () => {}]);
+export const AuthContext = createContext({});
 
 export const AuthContextProvider = ({ children }) => {
   const navigate = useNavigate();
@@ -14,7 +14,8 @@ export const AuthContextProvider = ({ children }) => {
   const login = (email, senha) => {
     axios.post('http://localhost:8080/auth', { senha, email })
       .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.data));
+        const user = JSON.stringify(res.data);
+        localStorage.setItem('user', JSON.parse(user));
         setAuth(res.data);
         navigate('/');
       })
