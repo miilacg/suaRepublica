@@ -11,7 +11,7 @@ import '../style/pages/Login.css';
 
 function Login() {
   const navigate = useNavigate();
-  
+
   const { auth, error, login } = useContext(AuthContext);
 
   const [email, setEmail] = useState('');
