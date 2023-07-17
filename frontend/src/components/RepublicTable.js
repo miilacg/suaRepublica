@@ -35,24 +35,30 @@ function RepublicTable() {
           <CircularProgress />
         </div>
       ) : (
-        <table className='table' cellspacing='0'>
-          <thead>
-            <th>Nome</th>
-            <th>Cidade</th>
-            <th>Bairro</th>
-            <th>Vagas</th>
-          </thead>
-          <tbody>
-            {republicas.map((republica) => (           
-              <tr key={republica.id}>
-                <td>{republica.nome}</td>
-                <td>{republica.municipio} - {republica.estado}</td>
-                <td>{republica.bairro}</td>
-                <td>{republica.qtd_vagas}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        republicas.length === 0 ? (
+          <h5 style={{ textAlign: 'center', color: 'rgba(128, 128, 128, 1)' }}>
+            Ainda não tem repúblicas cadastradas
+          </h5>
+        ) : (
+          <table className='table' cellspacing='0'>
+            <thead>
+              <th>Nome</th>
+              <th>Cidade</th>
+              <th>Bairro</th>
+              <th>Vagas</th>
+            </thead>
+            <tbody>
+              {republicas.map((republica) => (           
+                <tr key={republica.id}>
+                  <td>{republica.nome}</td>
+                  <td>{republica.municipio} - {republica.estado}</td>
+                  <td>{republica.bairro}</td>
+                  <td>{republica.qtd_vagas}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )
       )}
     </>    
   );
