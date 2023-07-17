@@ -8,11 +8,12 @@ import CircularProgress from '@mui/material/CircularProgress';
 import '../style/components/RepublicTable.css';
 
 function RepublicTable() {
+  const apiURL = process.env.REACT_APP_API_URL;
   const [republicas, setRepublicas] = useState(null);
 
   useEffect(() => {
     if (republicas === null) {
-      axios.get('http://localhost:8080/republics/list')
+      axios.get(`${apiURL}/republics/list`)
       .then((res) => {
         setRepublicas(res.data);
       })
@@ -26,6 +27,7 @@ function RepublicTable() {
         })
       });
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [republicas]);  
 
   return (

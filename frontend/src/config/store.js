@@ -4,7 +4,9 @@ import axios from 'axios';
 
 export const AuthContext = createContext({});
 
-export const AuthContextProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {  
+  const apiURL = process.env.REACT_APP_API_URL;
+
   const navigate = useNavigate();
 
   const loggedInUser = localStorage.getItem('user');
@@ -12,7 +14,7 @@ export const AuthContextProvider = ({ children }) => {
   const [error, setError] = useState(false);
 
   const login = (email, senha) => {
-    axios.post('http://localhost:8080/auth', { senha, email })
+    axios.post(`${apiURL}/auth`, { senha, email })
       .then((res) => {
         const user = JSON.stringify(res.data);
         localStorage.setItem('user', JSON.parse(user));
