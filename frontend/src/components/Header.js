@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,10 +9,19 @@ import { AuthContext } from '../config/store';
 import '../style/components/Header.css';
 
 function Header({ titulo }) {
-  const { auth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const [openMenu, setOpenMenu] = useState(false);
   const open = Boolean(openMenu);
+
+  const logout = () => {
+    localStorage.removeItem('user'); 
+    setAuth(null);
+    setOpenMenu(false); 
+    navigate('/');
+  }
 
   return (
     <>
@@ -33,7 +42,7 @@ function Header({ titulo }) {
           onClose={() => setOpenMenu(false)}
           anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         >
-          <MenuItem onClick={() => { localStorage.removeItem('user'); setOpenMenu(false); }}>
+          <MenuItem onClick={logout}>
             <p> Sair </p>
           </MenuItem>
         </Menu>
